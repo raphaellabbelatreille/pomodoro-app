@@ -1,0 +1,42 @@
+
+/** Élément généraux et élément classique HTML */
+body {
+    background-color: $neOff;
+    @media (min-width: $tablet) {
+        padding: 0px 165px;
+    }
+    color:$white;
+}
+
+h1, h2, h3 {
+    font-weight:800px
+}
+h1 {
+    font-size: 100px;
+    line-height: -5px;
+
+}
+h2 {
+    font-size: 28px;
+    line-height: 34px;
+}
+h3 {
+    font-size: 16px;
+    line-height: 15px;
+    text-transform:uppercase;
+}
+
+/** ÉLÉMENT COMPLEXE
+- bouton
+- selecteur
+*/
+button {
+    background-color: $rougeNeon;
+    border-radius: 26.5px;
+    &:hover {
+        &::after {
+            fill: $whiteGrey ;
+            opacity: 0.2 ;
+        }
+    }
+}

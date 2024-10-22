@@ -1,0 +1,32 @@
+
+/* COLOR */
+$rougeNeon: rgba(248, 112, 112, 1);
+$bleuNeon: rgba(112, 243, 248, 1);
+$poupleNeon: rgba(216, 129, 248, 1);
+$greyAsh: rgba(215, 224, 255, 1);
+$neOff: rgba(30, 33, 63, 1);
+$white: rgba(255, 255, 255, 1);
+$whiteGrey: rgba(239, 241, 250, 1);
+$darkBlueNoeon: rgba(22, 25, 50, 1);
+
+/* taille */
+$square : 45px;
+$desktop : 1000px;
+$tablet : 600px;
+
+/* font */
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+// <uniquifier>: Use a unique and descriptive class name
+// <weight>: Use a value from 100 to 900
+
+.kumbh-sans , body {
+    font-family: "Kumbh Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 50;
+    font-style: normal;
+    font-variation-settings:
+      "YOPQ" 300;
+}
+//$fontPrimaire : "Kumbh Sans", sans-sherif
