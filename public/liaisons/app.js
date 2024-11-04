@@ -17,16 +17,11 @@ function updateTimerDisplay(){
     console.log(currentDuration)
     let minutes = Math.floor(currentDuration / 60);
     let seconds = currentDuration - minutes*60;
-
-    /*if (minutes<10){
-        minutes = "0"+toString(minutes)
-    };*/
     if (seconds<10){
         seconds = "0"+seconds
     };
     pomodoroTimer.innerText = minutes + ":" + seconds;
     console.log(currentDuration + " sur " + duration)
-    //btnThing.innerText = textBtn[1];
     pomodoroBar.style.animation = "progress-animation "+duration +"s linear 0s 1 forwards"
 
 }
@@ -47,11 +42,10 @@ function runningTimer(){
             currentZone = document.querySelector("input[name='type_length']:checked").value
             changeZone(currentZone)// Pause de 5 minutes
             if (currentZone != "long"){
-                startTimer(); // Démarre la pause
+                startTimer(); // Démarre la pause short ou long
             } else {
-                btnThing.innerText = "RESTART"
+                btnThing.innerText = "RESTART" // s'arrete à la fin
             }
-            //pomodoroBar.style.animation = "progress-animation "+duration +"s linear 0s "+currentDuration+" forwards"
         } else {
             currentDuration--;
             updateTimerDisplay();
@@ -65,10 +59,9 @@ for (index=0;index<document.querySelectorAll("input[name='type_length']").length
 
 function changeZone(currentZone){
     console.log("change zone")
-    console.log(currentZone)
-    
     switch(currentZone) {
-        case "pomo": newZone = "short";break;
+    
+        case "pomo": newZone = "short"; let randomDice = math.floor(Math.random()*6+1);console.log(randomDice); if(randomDice==1){changeThemeColor("purlple") };break;
         case "short": newZone = "long";break;
         case "long": newZone = "pomo";break;
     }
@@ -83,7 +76,8 @@ function setTimer(){
     let newTime = ""
     switch (newZone){
         case "pomo": newTime = pomoLength;break;
-        case "short": newTime = shortLength;break;
+        case "short":
+            newTime = shortLength;break;
         case "long": newTime = longLength;break;
     }
     isRunning = true;
@@ -91,6 +85,19 @@ function setTimer(){
     currentDuration = duration;
     updateTimerDisplay()
     pauseTimer()
+
+    //HIHI funny
+    // 1/12 que les couleurs change aléatoirement
+    let randomDice = Math.floor(Math.random()*6+1);console.log(randomDice); 
+    if(randomDice==1){
+        randomDice = Math.floor(Math.random()*6+1)
+        switch (randomDice) {
+            case 1: case 2: changeThemeColor("red"); break;
+            case 3: case 4: changeThemeColor("blue"); break;
+            case 5: case 6: changeThemeColor("purple"); break;
+            default:break;
+        }
+         }; 
 }
 
 function resetTimer() {
@@ -98,7 +105,6 @@ function resetTimer() {
     clearInterval(timer);
     
     setTimer();// Réinitialise à 0.25 minutes
-    //isRunning = false;
     updateTimerDisplay();
 }
 function pauseTimer(){
@@ -117,9 +123,7 @@ function doThing(){
     console.log(btnThing.innerText)
     switch (btnThing.innerText) {
         case textBtn[0]: case textBtn[2]:
-            
             pomodoroBar.style.animation = "progress-animation "+duration +"s linear 0s 1 forwards"
-            
             updateTimerDisplay()
             startTimer();
             
