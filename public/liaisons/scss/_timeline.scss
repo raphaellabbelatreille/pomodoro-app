@@ -1,0 +1,36 @@
+
+.timeline {
+    background-color: $darkBlueNoeon;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    list-style: none;
+    padding-inline-start: 0px;
+    justify-content: space-between;
+    
+    border-radius: 50px;
+    height: auto;
+    li {
+        width:20%;
+        input {
+           display: none;
+        }
+        text-align: center;
+        padding: 1em ;
+        border-radius: 50px;
+        &:has(input:checked){
+            &.blue {
+                background-color: $bleuNeon ;
+            }
+            &.red {
+                background-color: $rougeNeon ;
+            }
+            &.purple {
+                background-color: $poupleNeon ;
+            }
+        }
+        &:has(input:not(:checked)) {
+            background-color: transparent;
+        }
+    }
+}

@@ -2,8 +2,22 @@
 /* COLOR */
 /* taille */
 /* font */
-.kumbh-sans, body {
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("../font/Kumbh_Sans/KumbhSans-VariableFont_YOPQ,wght.ttf");
+}
+@font-face {
+  font-family: "Roboto Slab";
+  src: url("../font/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Space Mono";
+  src: url("../font/Space_Mono/SpaceMono-Regular.ttf");
+}
+body {
   font-family: "Kumbh Sans", sans-serif;
+  font-family: "Roboto Slab", sans-serif;
+  font-family: "Space Mono", sans-serif;
   font-optical-sizing: auto;
   font-weight: 50;
   font-style: normal;
@@ -54,10 +68,55 @@ button:hover::after {
   opacity: 0.2;
 }
 
+.blue {
+  background-color: rgb(112, 243, 248);
+}
+
+.red {
+  background-color: rgb(248, 112, 112);
+}
+
+.purple {
+  background-color: rgb(216, 129, 248);
+}
+
+.timeline {
+  background-color: rgb(22, 25, 50);
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  list-style: none;
+  padding-inline-start: 0px;
+  justify-content: space-between;
+  border-radius: 50px;
+  height: auto;
+}
+.timeline li {
+  width: 20%;
+  text-align: center;
+  padding: 1em;
+  border-radius: 50px;
+}
+.timeline li input {
+  display: none;
+}
+.timeline li:has(input:checked).blue {
+  background-color: rgb(112, 243, 248);
+}
+.timeline li:has(input:checked).red {
+  background-color: rgb(248, 112, 112);
+}
+.timeline li:has(input:checked).purple {
+  background-color: rgb(216, 129, 248);
+}
+.timeline li:has(input:not(:checked)) {
+  background-color: transparent;
+}
+
 .circular-progress {
   --size: 250px;
   --half-size: calc(var(--size) / 2);
-  --stroke-width: 20px;
+  --stroke-width: 11px;
   --radius: calc((var(--size) - var(--stroke-width)) / 2);
   --circumference: calc(var(--radius) * pi * 2);
   --dash: calc((var(--progress) * var(--circumference)) / 100);
@@ -71,6 +130,7 @@ button:hover::after {
   stroke-linecap: round;
 }
 .circular-progress circle.bg {
+  opacity: 0;
   stroke: #ddd;
 }
 .circular-progress circle.fg {
@@ -78,7 +138,16 @@ button:hover::after {
   transform-origin: var(--half-size) var(--half-size);
   stroke-dasharray: var(--dash) calc(var(--circumference) - var(--dash));
   transition: stroke-dasharray 0.3s linear 0s;
-  stroke: #5394fd;
+  stroke: white;
+}
+.circular-progress circle.fg.blue {
+  stroke: #70f3f8;
+}
+.circular-progress circle.fg.red {
+  stroke: #f87070;
+}
+.circular-progress circle.fg.purple {
+  stroke: #d881f8;
 }
 
 @property --progress {
@@ -164,4 +233,49 @@ button:hover::after {
   font-weight: 700;
   letter-spacing: 15px;
   word-wrap: break-word;
+}
+
+.option_page {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  color: black;
+  top: 155px;
+  width: 540px;
+  background-color: white;
+  border-radius: 25;
+  padding: 40px;
+}
+.option_page .option_font, .option_page .option_theme {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.option_page .option_font li, .option_page .option_theme li {
+  width: 40px;
+  height: 40px;
+}
+.option_page .option_font ol, .option_page .option_theme ol, .option_page .option_time ol {
+  padding-inline-start: 0px;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  justify-content: space-between;
+}
+
+/* Logo pour ouvrir la page*/
+.option_logo input {
+  display: none;
+}
+
+.option_X button {
+  background-color: transparent;
+  border-color: transparent;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+}
+
+.option_logo:has(input:checked) ~ .option_page {
+  display: block;
 }/*# sourceMappingURL=style.css.map */

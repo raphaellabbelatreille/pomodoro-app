@@ -1,0 +1,59 @@
+
+.option_page {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    color: black;
+    top: 155px;
+    width:540px;
+    //height:490px;
+    background-color: white;
+    border-radius: 25 ;
+
+    padding: 40px;
+    .option_font, .option_theme {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        li {
+            width:40px;
+            height:40px;
+        }
+        
+    }
+    .option_font, .option_theme, .option_time {
+        h3 {
+        }
+        ol {
+            padding-inline-start: 0px;
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            justify-content: space-between;
+        }
+    }
+
+}
+
+
+/* Logo pour ouvrir la page*/
+.option_logo{
+    input {
+        display: none;
+    }
+}
+.option_X {
+    button {
+        background-color: transparent;
+        border-color: transparent;
+        position: absolute;
+        top: 40px;
+        right: 40px;
+    }
+}
+
+// si les checked sont différent, la page apparait,
+.option_logo:has(input:checked) ~ .option_page {
+    display: block;
+}
+

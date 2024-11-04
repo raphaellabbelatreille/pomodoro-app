@@ -17,12 +17,26 @@ $tablet : 600px;
 /* font */
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900
+@font-face {
+  font-family: "Kumbh Sans";
+  src: url("../font/Kumbh_Sans/KumbhSans-VariableFont_YOPQ\,wght.ttf");
+}
+@font-face {
+  font-family: "Roboto Slab";
+    src: url("../font/Roboto_Slab/RobotoSlab-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Space Mono";
+    src: url("../font/Space_Mono/SpaceMono-Regular.ttf");
+}
 
 // <uniquifier>: Use a unique and descriptive class name
 // <weight>: Use a value from 100 to 900
 
-.kumbh-sans , body {
+body {
     font-family: "Kumbh Sans", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
+    font-family: "Space Mono", sans-serif;
     font-optical-sizing: auto;
     font-weight: 50;
     font-style: normal;
